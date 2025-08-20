@@ -9,6 +9,10 @@ A transformer-based model for piano music continuation that generates coherent 1
 pip install -r requirements.txt
 ```
 
+### Model Setup
+1. Download the pretrained model weights from [Google Drive](https://drive.google.com/file/d/1aq285o1Mdgtw6k_X8Ue2oyS0wvTfNda6/view?usp=sharing)
+2. Place the model file in the `./pretrain_model/` directory:
+
 ### Usage
 The model follows the MIREX 2025 submission format:
 
@@ -46,4 +50,5 @@ The model follows the MIREX 2025 submission format:
   ]
 }
 ```
+
 
