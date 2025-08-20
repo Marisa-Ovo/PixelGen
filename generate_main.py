@@ -146,10 +146,12 @@ def generate_once(model, device, tensors, idx, out_dir,input_json):
 
     restored = torch.zeros((128, pianoroll.shape[1]))
     restored[20:108, :] = pianoroll
-    if restored.shape[1] > 300:
-        restored = restored[:, :300]
+    if restored.shape[1] > 271:
+        restored = restored[:, :272]
 
-    json_out = get_json(restored)
+
+    restored_copy = restored[:, 80:]
+    json_out = get_json(restored_copy)
 
     file_name = os.path.basename(input_json)
     # Save to JSON file
@@ -159,7 +161,7 @@ def generate_once(model, device, tensors, idx, out_dir,input_json):
 
 
     midi = pianoroll_to_multitrack(restored, tempo=18)
-    midi_path = os.path.join(out_dir, f"new{idx}_t{temperature}_l{seq_len_ctrl}_k{top_k}.mid")
+    midi_path = os.path.join(out_dir, f"{file_name}_new{idx}_t{temperature}_l{seq_len_ctrl}_k{top_k}.mid")
     midi.write(midi_path)
 
 
