@@ -47,8 +47,3 @@ The model follows the MIREX 2025 submission format:
 }
 ```
 
-
-
-  year={2025}
-}
-```
